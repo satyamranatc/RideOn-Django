@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('api/Car/', include('CarApp.urls')),
     path('api/Users/', include('UserApp.urls')),
+    path('api/Rent/', include('RentApp.urls')),
     path('admin/', admin.site.urls),
 ] 
 # Media URL Configuration

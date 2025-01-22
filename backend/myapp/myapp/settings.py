@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'CarApp',
     'UserApp',
+    'RentApp',
     'rest_framework',
     'corsheaders',
 ]

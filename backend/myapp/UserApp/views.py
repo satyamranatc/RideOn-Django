@@ -6,14 +6,14 @@ from .models import User
 from .serializers import UserSerializer
 
 @api_view(['GET'])
-def GetUsers(request):
+def user_list_all(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def GetUser(request, pk):
+def user_list(request, pk):
     try:
         user = User.objects.get(pk=pk)
     except User.DoesNotExist:
@@ -23,7 +23,7 @@ def GetUser(request, pk):
     return Response(serializer.data)
 
 @api_view(['POST'])
-def CreateUser(request):
+def user_create(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -31,7 +31,7 @@ def CreateUser(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['PUT'])
-def UpdateUser(request, pk):
+def user_update(request, pk):
     try:
         user = User.objects.get(pk=pk)
     except User.DoesNotExist:
@@ -44,7 +44,7 @@ def UpdateUser(request, pk):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
-def DeleteUser(request, pk):
+def user_delete(request, pk):
     try:
         user = User.objects.get(pk=pk)
         user.delete()
