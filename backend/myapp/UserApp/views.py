@@ -5,6 +5,22 @@ from rest_framework import status
 from .models import User
 from .serializers import UserSerializer
 
+
+@api_view(['POST'])
+def user_login(request):
+    email = request.data['email']
+    password = request.data['password']
+    user = User.objects.filter(email=email).first()
+    if user:
+        if user.password == (password):
+            serializer = UserSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"message": "Incorrect password"}, status=status.HTTP_401_UNAUTHORIZED)
+    else:
+        return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+
 @api_view(['GET'])
 def user_list_all(request):
     users = User.objects.all()
@@ -24,6 +40,7 @@ def user_list(request, pk):
 
 @api_view(['POST'])
 def user_create(request):
+   
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()

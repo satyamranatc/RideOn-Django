@@ -4,75 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="CarAdmin.css">
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-900 mb-2">The Ride On's Admin Page</h1>
-            <h2 class="text-xl text-gray-600">Car Admin Panel</h2>
-        </div>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../Car/CarAdmin.html" class="active">Car Admin</a></li>
+            <li><a href="../Users/UserAdmin.html">User Admin</a></li>
+            <li><a href="../Rent/RentAdmin.html">Rent Admin</a></li>
+        </ul>
+    </nav>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Add New Car Section -->
-            <section class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-semibold text-gray-800 mb-6">Add New Car</h3>
-                <form id="addCarForm" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" id="brand" placeholder="Brand" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <input type="text" id="modelInput" placeholder="Model" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="number" id="yearInput" placeholder="Year" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <input type="text" id="colorInput" placeholder="Color" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div class="flex items-center justify-center w-full">
-                        <label class="w-full flex flex-col items-center px-4 py-6 bg-white border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-                            <span class="text-sm text-gray-500">Drop car image here or click to upload</span>
-                            <input type="file" id="carPoster" accept="image/*" class="hidden">
-                        </label>
-                    </div>
-                    <button type="submit" 
-                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
-                        Add The Car To List
-                    </button>
-                </form>
-            </section>
+    <div class="container">
+        <header>
+            <h1>The Ride On's Admin Page</h1>
+            <h2>Car Admin Panel</h2>
+        </header>
 
-            <!-- Car List Section -->
-            <section class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-semibold text-gray-800 mb-6">Car List</h3>
-                <ul id="carList" class="space-y-6">
-                    <li class="border rounded-lg p-4 hover:shadow-md transition duration-200">
-                        <div class="aspect-w-16 aspect-h-9 mb-4">
-                            <img src="/api/placeholder/400/320" alt="Car Poster" 
-                                class="rounded-lg w-full h-48 object-cover">
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <h4 class="text-gray-700"><span class="font-semibold">Brand:</span> Mercedes</h4>
-                            <h4 class="text-gray-700"><span class="font-semibold">Model:</span> S-Class</h4>
-                            <h4 class="text-gray-700"><span class="font-semibold">Year:</span> 2020</h4>
-                            <h4 class="text-gray-700"><span class="font-semibold">Color:</span> Black</h4>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition duration-200">
-                                Delete
-                            </button>
-                            <button class="flex-1 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">
-                                Update
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-        </div>
+        <section class="add-car-form">
+            <h3>Add New Car</h3>
+            <form id="addCarForm">
+                <div class="form-row">
+                    <input type="text" id="brand" placeholder="Brand" required>
+                    <input type="text" id="modelInput" placeholder="Model" required>
+                </div>
+                <div class="form-row">
+                    <input type="number" id="yearInput" placeholder="Year" required>
+                    <input type="text" id="colorInput" placeholder="Color" required>
+                </div>
+                <div class="file-upload">
+                    <label for="carPoster">Drop car image here or click to upload</label>
+                    <input type="file" id="carPoster" accept="image/*">
+                </div>
+                <button type="submit">Add The Car To List</button>
+            </form>
+        </section>
+
+        <section class="car-list">
+            <h3>Car List</h3>
+            <ul id="carList">
+                <!-- Car items will be dynamically added here -->
+            </ul>
+        </section>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="./CarAdmin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="CarAdmin.js"></script>
 </body>
 </html>

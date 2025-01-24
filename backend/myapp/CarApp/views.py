@@ -23,6 +23,11 @@ def GetCar(request, pk):
 
 @api_view(['POST'])
 def CreateCar(request):
+
+    print(request.data)
+    # return Response({
+    #     "message": "Car created successfully."
+    # })
     serializer = CarSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()

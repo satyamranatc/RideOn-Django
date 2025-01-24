@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --background-color: #f9fafb;
+    --text-color: #1f2937;
+    --white: #ffffff;
+    --gray: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.signup-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 4rem 5%;
+    background-color: var(--white);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hero-search {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.hero-search input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px 0 0 4px;
+}
+
+.hero-search button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* Featured Cars */
+.featured-cars {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.featured-cars h2 {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.car-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.car-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f3f4f6;
+}
+
+.car-card button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+}
+
+/* How It Works */
+.how-it-works {
+    background-color: var(--white);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    flex: 1;
+    padding: 1rem;
+    margin: 0 1rem;
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    padding: 2rem 5%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero, .car-grid, .steps {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .car-grid, .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content, .hero-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin: 1rem 0;
+    }
+}

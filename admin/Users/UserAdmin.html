@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Admin</title>
+    <link rel="stylesheet" href="UserAdmin.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../Car/CarAdmin.html">Car Admin</a></li>
+            <li><a href="../Users/UserAdmin.html" class="active">User Admin</a></li>
+            <li><a href="../Rent/RentAdmin.html">Rent Admin</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>User Admin</h1>
+            <p>Welcome to the User Admin Page! Here you can manage all user data.</p>
+        </header>
+
+        <section class="user-form-section">
+            <h2>Add New User</h2>
+            <form id="UserForm">
+                <div class="form-row">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="UserType">User Type:</label>
+                    <select id="UserType" name="UserType">
+                        <option value="Admin">Admin</option>
+                        <option value="Customer">User</option>
+                    </select>
+                </div>
+
+                <button type="submit">Add User</button>
+            </form>
+        </section>
+
+        <section class="user-list-section">
+            <h2>User List</h2>
+            <ul id="userList">
+                <!-- Users will be dynamically added here -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="UserAdmin.js"></script>
+</body>
+</html>
