@@ -85,3 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial fetch of users
     fetchUsers();
 });
+
+
+function Delete()
+{
+    localStorage.removeItem("UserData");
+}

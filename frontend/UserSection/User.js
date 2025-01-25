@@ -38,13 +38,6 @@ SignInForm.addEventListener('submit', async (e) => {
 
     localStorage.setItem("Userdata",JSON.stringify(UserData));
 
-    let U = JSON.parse(localStorage.getItem("Userdata"));
-
-
-
-
-    
-
 
     // Reset form
     SignInForm.reset();
